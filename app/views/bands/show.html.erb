@@ -22,47 +22,47 @@
 
 <p>
   <strong>Conciertos actuales:</strong>
-        <% mes = Time.now.month %>
-        <% x = 0 %>
-        <% @band.concerts.each do |concert_d| %>
-          <% if concert_d.date.month == mes%>
-            <% x += 1 %>
-          <% end %>
-        <% end %>
-        <td class="text-center"><%= x %></td>
+  <% mes = Time.now.month %>
+  <% x = 0 %>
+  <% @band.concerts.each do |concert_d| %>
+    <% if concert_d.date.month == mes%>
+      <% x += 1 %>
+    <% end %>
+  <% end %>
+  <td class="text-center"><%= x %></td>
 </p>
 
 <p>
   <strong>Último concierto:</strong>
-        <% last_date = Date.new(0-0-0) %>
-        <% @band.concerts.each do |event| %>
-          <% if event.date > last_date %>
-            <% last_date = event.date %>
-          <% end %>
-        <% end %>
-        <td class="text-center"> <%= last_date.strftime ("%y - %B - %A") %></td>
+  <% last_date = Date.new(0-0-0) %>
+  <% @band.concerts.each do |event| %>
+    <% if event.date > last_date %>
+      <% last_date = event.date %>
+    <% end %>
+  <% end %>
+  <td class="text-center"> <%= last_date.strftime ("%y - %B - %A") %></td>
 </p>
 
 <p>
   <strong>Máximo de asistentes:</strong>
-          <% max_asist = 0 %>
-          <% @band.concerts.each do |concerts| %>
-            <% if concerts.cant > max_asist %>
-              <% max_asist = concerts.cant %>
-            <% end %>
-          <% end %>
-        <td class="text-center"><%= max_asist %></td>
+  <% max_asist = 0 %>
+  <% @band.concerts.each do |concerts| %>
+    <% if concerts.cant > max_asist %>
+      <% max_asist = concerts.cant %>
+    <% end %>
+  <% end %>
+<td class="text-center"><%= max_asist %></td>
 </p>
 
 <p>
-  <strong>Mayor duración:</strong>
-          <% duracion = 0 %>
-          <% @band.concerts.each do |concert| %>
-            <% if concert.duration > duracion %>
-              <%  duracion= concert.duration%>
-            <% end %>
-          <% end %>
-        <td class="text-center"><%= "#{duracion} hrs" %></td>
+<strong>Mayor duración:</strong>
+  <% duracion = 0 %>
+  <% @band.concerts.each do |concert| %>
+    <% if concert.duration > duracion %>
+      <%  duracion= concert.duration%>
+    <% end %>
+  <% end %>
+  <td class="text-center"><%= "#{duracion} hrs" %></td>
 </p>
 
 <%= link_to 'Edit', edit_band_path(@band) %> |
