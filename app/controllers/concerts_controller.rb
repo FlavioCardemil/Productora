@@ -18,6 +18,7 @@ class ConcertsController < ApplicationController
 
   # GET /concerts/1/edit
   def edit
+    @bands = Band.all
   end
 
   # POST /concerts or /concerts.json

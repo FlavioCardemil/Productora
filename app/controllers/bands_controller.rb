@@ -1,9 +1,11 @@
 class BandsController < ApplicationController
   before_action :set_band, only: %i[ show edit update destroy ]
+  before_action :set_selects, only: %i[new edit create update]
 
   # GET /bands or /bands.json
   def index
     @bands = Band.all
+    @bands = Band.includes(:concerts)
   end
 
   # GET /bands/1 or /bands/1.json
@@ -57,6 +59,7 @@ class BandsController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_band
       @band = Band.find(params[:id])
