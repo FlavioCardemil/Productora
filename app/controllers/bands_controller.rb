@@ -1,6 +1,5 @@
 class BandsController < ApplicationController
   before_action :set_band, only: %i[ show edit update destroy ]
-  before_action :set_selects, only: %i[new edit create update]
 
   # GET /bands or /bands.json
   def index
